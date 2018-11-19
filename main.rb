@@ -1,5 +1,7 @@
 require_relative "high-low"
 require_relative "cash"
+require_relative "roulette"
+require_relative "helper"
 $VERBOSE = nil
 
 def init_game
@@ -27,10 +29,12 @@ def find_game(choice)
       new_game = HighLow.new()
       new_game.start_game
     when 2
-      puts "This game is currently in development, please check back later!"
-      sleep(1.5)
-      puts 'clear'
-      menu 
+      # puts "This game is currently in development, please check back later!"
+      # sleep(1.5)
+      # puts 'clear'
+      # menu 
+      new_roulette = Roulette.new()
+      new_roulette.start_roulette
     when 3
       puts "You have $#{@@cash} to gamble"
       sleep(1.5)

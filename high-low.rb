@@ -28,7 +28,6 @@ class HighLow
       @@cash = @@cash+10
       puts "You guessed the right number, congratulations!"
       puts "You have $#{@@cash}"
-      puts "Would you like to play High/Low again? (y/n)"
       play_again
     end
   end
@@ -59,6 +58,7 @@ class HighLow
   end
 
   def play_again 
+    puts "Would you like to play again? (y/n)"
     print "> "
     play = gets.strip 
     if play == "y" || play == "Y"
@@ -74,4 +74,5 @@ class HighLow
       play_again
     end
   end
+
 end
