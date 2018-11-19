@@ -12,12 +12,14 @@ def init_game
 end
 
 def menu
+  puts `clear`
   puts "~~~~~Welcome to the Casino!~~~~~~"
   puts "Which game would you like to play?"
   puts "1) High/Low"
   puts "2) Roullete"
   puts "3) Check my Money"
   puts "4) Game Instructions"
+  puts "5) Exit"
   print "> "
   choice = gets.to_i
   find_game(choice)
@@ -38,12 +40,17 @@ def find_game(choice)
     when 3
       puts "You have $#{@@cash} to gamble"
       sleep(1.5)
-      puts `clear`
       menu
     when 4
-      # instructions
+      puts "Instructions coming soon!"
+      sleep(1.5)
+      menu
+    when 5
+      exit
     else 
-    puts "error"
+    puts "That isn't a valid option, please try again."
+    sleep(1)
+    menu
   end
 end
 

@@ -5,7 +5,7 @@ require_relative "cash"
 class Roulette
   def start_roulette
     puts `clear`
-    puts "Welcome to Roulette!" 
+    puts "~~~~~Welcome to Roulette!~~~~~~" 
     "You currently have $#{@@cash}"
       @color_choice = AllGames.get_rand
         if @color_choice % 2 == 0
@@ -17,8 +17,8 @@ class Roulette
   end
 
   def bet_amount
-    puts "How much would you like to bet?"
-    print "> "
+    puts "How much would you like to bet? You currently have $#{@@cash}"
+    print "> $"
     @bet = gets.to_i
     check_bet(@bet)
   end
@@ -44,11 +44,11 @@ class Roulette
   def user_color_guess(choice)
     case choice
     when 1
+      puts "You guessed red"
       red_check
-      puts "you guessed red"
     when 2
+      puts "You guessed black"
       black_check
-      puts "you guessed black"
     else
       puts "Invalid Selection"
       user_guess_options
@@ -58,12 +58,12 @@ class Roulette
   def red_check
     if @color_choice == 'red'
       @@cash = @@cash+@bet
-      puts "You win! You now have #{@@cash}."
+      puts "You win! You now have $#{@@cash}."
       play_again
     else
       @color_choice == 'black'
       @@cash = @@cash-@bet
-      puts "Try again if you dare, you now have #{@@cash}."
+      puts "You lost! You now have $#{@@cash}."
       play_again
     end
   end
@@ -71,12 +71,12 @@ class Roulette
   def black_check
     if @color_choice == 'black'
       @@cash = @@cash+@bet
-      puts "You win! You now have #{@@cash}."
+      puts "You win! You now have $#{@@cash}."
       play_again
     else
       @color_choice == 'red'
       @@cash = @@cash-@bet
-      puts "You lost! You now have #{@@cash}."
+      puts "You lost! You now have $#{@@cash}."
       play_again
     end
   end
@@ -101,33 +101,3 @@ class Roulette
     end
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-# def play_again
-#     puts "Would you like to play again?"
-#     puts "1) Play Again"
-#     puts "2) Exit"
-# end
-
-# def operator_operation
-#     play_again
-#     choice = gets.to_i
-#     case choice
-#     when 1
-#       startRoulette
-#     when 2
-#       user_selection
-#     else
-#       puts "Invalid Selection"
-#       operator_operation
-#     end
-# end

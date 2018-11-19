@@ -12,5 +12,4 @@ module AllGames
     rand_num = rand(101)
     return rand_num
   end
-
 end
