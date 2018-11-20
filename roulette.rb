@@ -55,31 +55,59 @@ class Roulette
     end
   end
 
-  def red_check
-    if @color_choice == 'red'
-      @@cash = @@cash+@bet
-      puts "You win! You now have $#{@@cash}."
-      play_again
+  def user_color_guess(choice)
+    case choice
+    when 1
+      puts "You guessed red"
+      # red_check
+      check("red")
+    when 2
+      puts "You guessed black"
+      # black_check
+      check("black")
     else
-      @color_choice == 'black'
-      @@cash = @@cash-@bet
-      puts "You lost! You now have $#{@@cash}."
-      play_again
+      puts "Invalid Selection"
+      user_guess_options
     end
   end
   
-  def black_check
-    if @color_choice == 'black'
+  def check(color)
+    if @color_choice == color
       @@cash = @@cash+@bet
-      puts "You win! You now have $#{@@cash}."
-      play_again
-    else
-      @color_choice == 'red'
+        puts "You win! You now have $#{@@cash}."
+        play_again
+    else 
       @@cash = @@cash-@bet
-      puts "You lost! You now have $#{@@cash}."
-      play_again
+        puts "You lost! You now have $#{@@cash}."
+        play_again
     end
   end
+
+  # def red_check
+  #   if @color_choice == 'red'
+  #     @@cash = @@cash+@bet
+  #     puts "You win! You now have $#{@@cash}."
+  #     play_again
+  #   else
+  #     @color_choice == 'black'
+  #     @@cash = @@cash-@bet
+  #     puts "You lost! You now have $#{@@cash}."
+  #     play_again
+  #   end
+  # end
+  
+  # def black_check
+  #   if @color_choice == 'black'
+  #     @@cash = @@cash+@bet
+  #     puts "You win! You now have $#{@@cash}."
+  #     play_again
+  #   else
+  #     @color_choice == 'red'
+  #     @@cash = @@cash-@bet
+  #     puts "You lost! You now have $#{@@cash}."
+  #     play_again
+  #   end
+  # end
 
   def play_again 
     puts "Would you like to play again? (y/n)"
