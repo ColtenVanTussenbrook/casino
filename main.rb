@@ -2,6 +2,7 @@ require_relative "high-low"
 require_relative "cash"
 require_relative "roulette"
 require_relative "helper"
+require_relative "blackjack"
 $VERBOSE = nil
 
 def init_game
@@ -17,9 +18,10 @@ def menu
   puts "Which game would you like to play?"
   puts "1) High/Low"
   puts "2) Roullete"
-  puts "3) Check my Money"
-  puts "4) Game Instructions"
-  puts "5) Exit"
+  puts "3) Blackjack"
+  puts "4) Check my Money"
+  puts "5) Game Instructions"
+  puts "6) Exit"
   print "> "
   choice = gets.to_i
   find_game(choice)
@@ -38,14 +40,21 @@ def find_game(choice)
       new_roulette = Roulette.new()
       new_roulette.start_roulette
     when 3
+      puts "Blackjack coming soon!"
+      sleep(1.5)
+      menu
+
+      # new_blackjack = Blackjack.new()
+      # new_blackjack.start
+    when 4
       puts "You have $#{@@cash} to gamble"
       sleep(1.5)
       menu
-    when 4
+    when 5
       puts "Instructions coming soon!"
       sleep(1.5)
       menu
-    when 5
+    when 6
       exit
     else 
     puts "That isn't a valid option, please try again."
