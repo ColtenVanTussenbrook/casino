@@ -40,12 +40,12 @@ def find_game(choice)
       new_roulette = Roulette.new()
       new_roulette.start_roulette
     when 3
-      puts "Blackjack coming soon!"
-      sleep(1.5)
-      menu
+      # puts "Blackjack coming soon!"
+      # sleep(1.5)
+      # menu
 
-      # new_blackjack = Blackjack.new()
-      # new_blackjack.start
+      new_blackjack = Blackjack.new()
+      new_blackjack.start
     when 4
       puts "You have $#{@@cash} to gamble"
       sleep(1.5)
@@ -55,6 +55,7 @@ def find_game(choice)
       sleep(1.5)
       menu
     when 6
+      puts "Thanks for playing at the casino!"
       exit
     else 
     puts "That isn't a valid option, please try again."
